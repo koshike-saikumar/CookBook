@@ -1,3 +1,4 @@
+"use strict";
 // import React, { useEffect, useRef } from 'react';
 // import { useParams } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux';
@@ -32,26 +33,19 @@
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 // import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 // import './CookPage.css';
-
 // function secFormat(sec: number) {
 //   const m = Math.floor(sec / 60).toString().padStart(2, '0');
 //   const s = Math.floor(sec % 60).toString().padStart(2, '0');
 //   return `${m}:${s}`;0
 // }
-
 // export default function CookPage() {
 // const { id } = useParams<{ id: string }>();
-
-
-
 // if (!id) return <Box p={2}><Typography>Invalid Recipe ID</Typography></Box>;
-
 //   const recipes = useSelector((s: RootState) => s.recipes);
 //   const session = useSelector((s: RootState) => s.session);
 //   const dispatch = useDispatch();
 //   const recipe = recipes.find((r) => r.id === id);
 //   const timerRef = useRef<number | null>(null);
-
 //   useEffect(() => {
 //     if (!id || !session.activeRecipeId || session.activeRecipeId !== id) return;
 //     function tick() {
@@ -76,20 +70,17 @@
 //       if (timerRef.current) clearInterval(timerRef.current);
 //     };
 //   }, [session, id, recipes, dispatch]);
-
 //   if (!recipe)
 //     return (
 //       <Box className="cook-container">
 //         <Typography>Recipe not found</Typography>
 //       </Box>
 //     );
-
 //   const sess = session.activeRecipeId === id ? session.byRecipeId[id] : null;
 //   const totalSec = recipe.steps.reduce((a, b) => a + b.durationMinutes * 60, 0);
 //   const overallRemaining = sess ? sess.overallRemainingSec : totalSec;
 //   const overallElapsed = totalSec - overallRemaining;
 //   const overallPct = Math.round((overallElapsed / totalSec) * 100 || 0);
-
 //   function onStart() {
 //     if (session.activeRecipeId && session.activeRecipeId !== id)
 //       return alert('Another session is active!');
@@ -107,19 +98,16 @@
 //     if (!sess) return;
 //     // dispatch(stopCurrentStep({ recipeId: id }));
 //   }
-
 //   const currentStep = sess ? recipe.steps[sess.currentStepIndex] : recipe.steps[0];
 //   const stepRemain = sess ? sess.stepRemainingSec : currentStep.durationMinutes * 60;
 //   const stepDur = currentStep.durationMinutes * 60;
 //   const stepPct = Math.round(((stepDur - stepRemain) / stepDur) * 100 || 0);
-
 //   const getStepStatus = (index: number) => {
 //     if (!sess) return index === 0 ? 'current' : 'upcoming';
 //     if (index < sess.currentStepIndex) return 'completed';
 //     if (index === sess.currentStepIndex) return 'current';
 //     return 'upcoming';
 //   };
-
 //   return (
 //     <Box className="cook-container">
 //       {/* Header Section */}
@@ -149,7 +137,6 @@
 //               </Box>
 //             </Box>
 //           </Box>
-          
 //           <Stack direction="row" spacing={1} className="control-buttons">
 //             {!sess && (
 //               <Button 
@@ -199,7 +186,6 @@
 //           </Stack>
 //         </Box>
 //       </Card>
-
 //       {/* Current Step Section */}
 //       <Card className="current-step-section" elevation={0}>
 //         <Box className="step-content">
@@ -243,7 +229,6 @@
 //           </Box>
 //         </Box>
 //       </Card>
-
 //       {/* Overall Progress - Compact */}
 //       <Card className="progress-section" elevation={0}>
 //         <Box className="progress-content">
@@ -265,7 +250,6 @@
 //           </Typography>
 //         </Box>
 //       </Card>
-
 //       {/* Timeline */}
 //       <Card className="timeline-section" elevation={0}>
 //         <Box className="timeline-header">
@@ -274,7 +258,6 @@
 //             Steps
 //           </Typography>
 //         </Box>
-        
 //         <Box className="timeline-steps">
 //           {recipe.steps.map((step, index) => {
 //             const status = getStepStatus(index);
@@ -296,7 +279,6 @@
 //                     <div className="step-connector"></div>
 //                   )}
 //                 </Box>
-                
 //                 <Box className="step-content">
 //                   <Typography variant="body2" className="step-title">
 //                     Step {index + 1}

@@ -14,9 +14,9 @@ import {
   Card,
   CardContent,
   CardActions,
-  Grid,
   Chip,
 } from '@mui/material';
+import { Grid } from '@mui/material';
 import Star from '@mui/icons-material/Star';
 import StarBorder from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -125,7 +125,7 @@ export default function RecipeList() {
       </Box>
 
       {/* Recipe Cards Grid */}
-      <Grid container spacing={3} className="recipes-grid">
+      {/* <Grid container spacing={3} className="recipes-grid">
         {shown.map((recipe) => {
           const totalTime = recipe.steps.reduce((a, b) => a + b.durationMinutes, 0);
           return (
@@ -135,10 +135,10 @@ export default function RecipeList() {
                 onClick={() => navigate(`/cook/${recipe.id}`)}
               >
                 <CardContent className="card-content">
-                  {/* Card Header */}
+                  
                   <Box className="card-header">
                     <Typography variant="h6" className="recipe-name">
-                      {recipe.title}
+                      {recipe.title} 
                     </Typography>
                     <IconButton
                       size="small"
@@ -156,7 +156,7 @@ export default function RecipeList() {
                     </IconButton>
                   </Box>
 
-                  {/* Recipe Meta */}
+                  
                   <Box className="recipe-meta">
                     <Chip
                       label={recipe.difficulty}
@@ -177,7 +177,7 @@ export default function RecipeList() {
                   </Box>
                 </CardContent>
 
-                {/* Card Actions */}
+               
                 <CardActions className="card-actions">
                   <Button 
                     size="small" 
@@ -192,7 +192,7 @@ export default function RecipeList() {
             </Grid>
           );
         })}
-      </Grid>
+      </Grid> */}
 
       {/* Empty State */}
       {shown.length === 0 && (

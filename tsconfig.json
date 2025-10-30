@@ -1,14 +1,21 @@
 {
-"compilerOptions": {
-"target": "ES2020",
-"useDefineForClassFields": true,
-"lib": ["DOM", "ES2020"],
-"jsx": "react-jsx",
-"module": "ESNext",
-"moduleResolution": "Node",
-"strict": true,
-"esModuleInterop": true,
-"skipLibCheck": true,
-"forceConsistentCasingInFileNames": true
-}
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "ES2020"],
+    "jsx": "react-jsx",
+
+    /* 👇 Key fixes */
+    "module": "ESNext",
+    "moduleResolution": "bundler",   // ✅ use bundler instead of Node (fixes @vitejs/plugin-react, MUI, etc.)
+
+    /* TypeScript checks */
+    "strict": true,
+    "noImplicitAny": false,          // (optional: avoid implicit any errors)
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"],                // ✅ ensures only src folder is compiled
+  "exclude": ["node_modules", "dist"]
 }
