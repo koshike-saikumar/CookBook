@@ -1,0 +1,288 @@
+.create-recipe-page {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.create-recipe-card {
+  width: 100%;
+  max-width: 700px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Header Styles */
+.recipe-header {
+  background: #ffffff;
+  padding: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.create-title {
+  font-weight: 600 !important;
+  color: #1e293b;
+  margin-bottom: 4px !important;
+  font-size: 1.5rem !important;
+}
+
+.create-subtitle {
+  color: #64748b !important;
+  font-size: 0.9rem !important;
+}
+
+.recipe-stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  border: 1px solid #e2e8f0 !important;
+  color: #64748b !important;
+  font-size: 0.75rem !important;
+  height: 28px !important;
+}
+
+/* Form Content */
+.form-content {
+  padding: 24px;
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.section-header {
+  margin-bottom: 16px;
+}
+
+.section-title {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+}
+
+.section-icon {
+  color: #64748b;
+  font-size: 18px !important;
+}
+
+.count-chip {
+  background: #64748b !important;
+  color: white !important;
+  font-size: 0.7rem !important;
+  height: 20px !important;
+}
+
+/* Basic Information */
+.basic-fields {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+}
+
+.recipe-input {
+  margin-top: 0 !important;
+}
+
+.recipe-input .MuiOutlinedInput-root {
+  border-radius: 8px;
+}
+
+/* Ingredients Section */
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ingredient-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.ingredient-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ingredient-field .MuiOutlinedInput-root {
+  border-radius: 6px;
+}
+
+.ingredient-meta {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8px;
+}
+
+.quantity-field .MuiOutlinedInput-root,
+.unit-field .MuiOutlinedInput-root {
+  border-radius: 6px;
+}
+
+/* Steps Section */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.step-card {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.step-number {
+  font-weight: 600;
+  font-size: 0.7rem !important;
+}
+
+.step-description {
+  margin-bottom: 12px !important;
+}
+
+.step-description .MuiOutlinedInput-root {
+  border-radius: 6px;
+}
+
+.step-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.step-type-field .MuiOutlinedInput-root,
+.duration-field .MuiOutlinedInput-root {
+  border-radius: 6px;
+}
+
+/* Buttons */
+.remove-btn {
+  color: #94a3b8 !important;
+  padding: 4px !important;
+}
+
+.remove-btn:hover {
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+.add-btn {
+  border: 1px dashed #cbd5e1 !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+}
+
+.add-btn:hover {
+  border-color: #3b82f6 !important;
+  color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.05) !important;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.cancel-btn {
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #64748b !important;
+}
+
+.save-btn {
+  background: #3b82f6 !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+}
+
+.save-btn:hover {
+  background: #2563eb !important;
+}
+
+.save-btn:disabled {
+  background: #cbd5e1 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .create-recipe-page {
+    padding: 12px;
+  }
+  
+  .recipe-header {
+    padding: 20px;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .form-content {
+    padding: 20px;
+  }
+  
+  .basic-fields {
+    grid-template-columns: 1fr;
+  }
+  
+  .ingredient-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .step-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}
