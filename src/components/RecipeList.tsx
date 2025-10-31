@@ -125,7 +125,7 @@ export default function RecipeList() {
       </Box>
 
       {/* Recipe Cards Grid */}
-      {/* <Grid container spacing={3} className="recipes-grid">
+      <Grid container spacing={3} className="recipes-grid">
         {shown.map((recipe) => {
           const totalTime = recipe.steps.reduce((a, b) => a + b.durationMinutes, 0);
           return (
@@ -192,7 +192,7 @@ export default function RecipeList() {
             </Grid>
           );
         })}
-      </Grid> */}
+      </Grid>
 
       {/* Empty State */}
       {shown.length === 0 && (
