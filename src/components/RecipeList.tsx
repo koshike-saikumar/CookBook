@@ -16,7 +16,7 @@ import {
   CardActions,
   Chip,
 } from '@mui/material';
-
+import imageIcon from '../utils/image.png';
 import Star from '@mui/icons-material/Star';
 import StarBorder from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -74,9 +74,30 @@ export default function RecipeList() {
       <Paper className="recipe-header" elevation={0}>
         <Box className="header-content">
           <Box>
-            <Typography variant="h4" className="recipe-title" gutterBottom>
-              Your Recipes
-            </Typography>
+            
+           <Box display="flex" alignItems="center" gap={1} mb={2}>
+  <img
+    src={imageIcon}
+    alt="copy icon"
+    style={{
+      width: 40,
+      height: 40,
+      borderRadius: '8px',
+      objectFit: 'cover',
+    }}
+  />
+  <Typography
+    variant="h4"
+    className="recipe-title"
+    gutterBottom
+    sx={{
+      fontWeight: 'bold',
+      fontFamily: 'Roboto, Arial, sans-serif',
+    }}
+  >
+    Your Recipes
+  </Typography>
+</Box>
             <Typography variant="body1" className="recipe-subtitle">
               {shown.length} recipe{shown.length !== 1 ? 's' : ''} found
             </Typography>

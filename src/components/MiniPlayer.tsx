@@ -89,7 +89,7 @@ if (!s) return null;
         gap: 2,
         borderRadius: 3,
         boxShadow: 6,
-        background: '#fff',
+        background: '#ffffffff',
         zIndex: 1200,
       }}
       elevation={6}

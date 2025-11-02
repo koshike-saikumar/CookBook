@@ -266,22 +266,40 @@ export default function CookPage() {
               color="primary"
               size="small"
             />
-            <Typography
-              variant="subtitle1"
-              sx={{
-                fontFamily: 'Roboto, Arial, sans-serif',
-                fontWeight: 'bold',
-                fontSize: '2rem',
-                color: '#341a27ff',
-                letterSpacing: 0.5,
-              }}
-            >
-              {currentStep.description}
-            </Typography>
+           
+
+{/* Step Description */}
+<Typography
+  variant="subtitle1"
+  sx={{
+    fontFamily: 'Roboto, Arial, sans-serif',
+    fontWeight: 'bold',
+    fontSize: '1.4rem',
+    color: '#341a27ff',
+    letterSpacing: 0.5,
+  }}
+>
+ <span
+  style={{
+    fontWeight: 700,
+    fontSize: '1rem',
+    color: '#5d722dff',
+    marginRight: '8px',
+  }}
+>
+  Step {(sess ? sess.currentStepIndex : 0) + 1} instructions:
+</span>
+  {currentStep.description}
+</Typography>
+
 
             {currentStep.type === 'cooking' &&
               currentStep.cookingSettings && (
+                
                 <Box className="cooking-details" sx={{ mt: 1 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                🧾 Type: Cooking step
+              </Typography>
                   <Typography variant="body2" color="text.secondary">
                     🔥 Temperature: <b>{currentStep.cookingSettings.temperature}°C</b>
                   </Typography>
@@ -291,9 +309,11 @@ export default function CookPage() {
                 </Box>
               )}
             {currentStep.type === 'instruction' && (
+              <Box className="cooking-details" sx={{ mt: 1 }}>
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                 🧾 Type: Instruction step
               </Typography>
+              </Box>
             )}
 
             <Box className="step-time">

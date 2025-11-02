@@ -374,7 +374,7 @@ export default function CreateRecipe() {
                     <TextField
                       label="Temperature (°C)"
                       type="number"
-                      inputProps={{ min: 40, max: 200 }}
+                      
                       value={st.cookingSettings?.temperature || ''}
                       onChange={(e) =>
                         setSteps((prev) =>
@@ -383,10 +383,9 @@ export default function CreateRecipe() {
                               ? {
                                   ...p,
                                   cookingSettings: {
-                                    temperature: Math.min(
-                                      200,
-                                      Math.max(40, Number(e.target.value))
-                                    ),
+                                    temperature: 
+                                      Math.max(1, Number(e.target.value))
+                                    ,
                                     speed: Math.max(1, p.cookingSettings?.speed || 1),
                                   },
                                 }
