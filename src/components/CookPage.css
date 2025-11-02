@@ -145,7 +145,7 @@
   font-weight: 500 !important;
   color: #1e293b;
   line-height: 1.4 !important;
-  font-size: 0.9rem !important;
+  font-size: 15rem !important;
 }
 
 .step-meta {
@@ -389,4 +389,18 @@
     justify-content: flex-start;
     gap: 8px;
   }
+}
+
+.cooking-details {
+  background: #f9fafc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.timeline-step.cooking {
+  border-left: 3px solid #ff9800;
+}
+
+.timeline-step .step-content {
+  margin-left: 8px;
 }

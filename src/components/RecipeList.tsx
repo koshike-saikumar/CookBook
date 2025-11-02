@@ -16,7 +16,7 @@ import {
   CardActions,
   Chip,
 } from '@mui/material';
-import { Grid } from '@mui/material';
+
 import Star from '@mui/icons-material/Star';
 import StarBorder from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -27,6 +27,7 @@ import { toggleFavorite } from '../slices/recipesSlice';
 import { useNavigate } from 'react-router-dom';
 import { Difficulty } from '../types';
 import './RecipeList.css';
+
 export default function RecipeList() {
   const recipes = useSelector((s: RootState) => s.recipes);
   const dispatch = useDispatch();
@@ -49,10 +50,14 @@ export default function RecipeList() {
 
   const getDifficultyColor = (difficulty: Difficulty) => {
     switch (difficulty) {
-      case 'Easy': return '#10b981';
-      case 'Medium': return '#f59e0b';
-      case 'Hard': return '#ef4444';
-      default: return '#6b7280';
+      case 'Easy':
+        return '#10b981';
+      case 'Medium':
+        return '#f59e0b';
+      case 'Hard':
+        return '#ef4444';
+      default:
+        return '#6b7280';
     }
   };
 
@@ -124,83 +129,82 @@ export default function RecipeList() {
         </Box>
       </Box>
 
-      {/* Recipe Cards Grid */}
-      <Grid container spacing={3} className="recipes-grid">
+      {/* Recipe Cards (Flex Layout) */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 3,
+          justifyContent: 'flex-start',
+          mt: 3,
+        }}
+      >
         {shown.map((recipe) => {
           const totalTime = recipe.steps.reduce((a, b) => a + b.durationMinutes, 0);
           return (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={recipe.id}>
-              <Card 
-                className="recipe-card"
-                onClick={() => navigate(`/cook/${recipe.id}`)}
-              >
-                <CardContent className="card-content">
-                  
-                  <Box className="card-header">
-                    <Typography variant="h6" className="recipe-name">
-                      {recipe.title} 
-                    </Typography>
-                    <IconButton
-                      size="small"
-                      className="favorite-btn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        dispatch(toggleFavorite(recipe.id));
-                      }}
-                    >
-                      {recipe.isFavorite ? (
-                        <Star className="favorite-icon filled" />
-                      ) : (
-                        <StarBorder className="favorite-icon" />
-                      )}
-                    </IconButton>
-                  </Box>
-
-                  
-                  <Box className="recipe-meta">
-                    <Chip
-                      label={recipe.difficulty}
-                      size="small"
-                      className="difficulty-chip"
-                      style={{
-                        backgroundColor: getDifficultyColor(recipe.difficulty),
-                        color: 'white',
-                        fontWeight: 600,
-                      }}
-                    />
-                    <Box className="time-display">
-                      <AccessTimeIcon className="time-icon" />
-                      <Typography variant="body2" className="time-text">
-                        {formatTime(totalTime)}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </CardContent>
-
-               
-                <CardActions className="card-actions">
-                  <Button 
-                    size="small" 
-                    fullWidth
-                    className="cook-btn"
-                    onClick={() => navigate(`/cook/${recipe.id}`)}
+            <Card
+              key={recipe.id}
+              className="recipe-card"
+              sx={{
+                flex: '1 1 250px', // responsive width
+                maxWidth: 300,
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                '&:hover': { transform: 'scale(1.03)', boxShadow: 6 },
+              }}
+              onClick={() => navigate(`/cook/${recipe.id}`)}
+            >
+              <CardContent>
+                <Box className="card-header" display="flex" justifyContent="space-between">
+                  <Typography variant="h6">{recipe.title}</Typography>
+                  <IconButton
+                    size="small"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      dispatch(toggleFavorite(recipe.id));
+                    }}
                   >
-                    Start Cooking
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
+                    {recipe.isFavorite ? <Star color="warning" /> : <StarBorder />}
+                  </IconButton>
+                </Box>
+
+                <Box mt={1} display="flex" justifyContent="space-between" alignItems="center">
+                  <Chip
+                    label={recipe.difficulty}
+                    size="small"
+                    sx={{
+                      backgroundColor: getDifficultyColor(recipe.difficulty),
+                      color: 'white',
+                      fontWeight: 600,
+                    }}
+                  />
+                  <Box display="flex" alignItems="center">
+                    <AccessTimeIcon sx={{ fontSize: 18, mr: 0.5 }} />
+                    <Typography variant="body2">{formatTime(totalTime)}</Typography>
+                  </Box>
+                </Box>
+              </CardContent>
+
+              <CardActions>
+                <Button
+                  size="small"
+                  fullWidth
+                  variant="contained"
+                  onClick={() => navigate(`/cook/${recipe.id}`)}
+                >
+                  Start Cooking
+                </Button>
+              </CardActions>
+            </Card>
           );
         })}
-      </Grid>
+      </Box>
 
       {/* Empty State */}
       {shown.length === 0 && (
-        <Paper className="empty-state">
-          <Typography variant="h6" className="empty-title">
-            No recipes found
-          </Typography>
-          <Typography variant="body2" className="empty-subtitle">
+        <Paper className="empty-state" sx={{ textAlign: 'center', p: 4, mt: 3 }}>
+          <Typography variant="h6">No recipes found</Typography>
+          <Typography variant="body2">
             Try adjusting your filters or create a new recipe to get started.
           </Typography>
         </Paper>
